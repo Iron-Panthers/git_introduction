@@ -14,8 +14,8 @@ public class Stars {
 		String star = "*";
 
 		for(int i = 0; i < 5; i++) {
-			System.out.println(star);
-			for(int x = 0; x < 5 ; x++) {
+			//System.out.println(star);
+			for(int x = 0; x < i ; x++) {
 				System.out.print(star);
 			}
 			System.out.println();
