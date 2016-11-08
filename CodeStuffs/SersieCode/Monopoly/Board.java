@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Board
 {
 
-	Property[] list = new Property[20];
+	Property[] list = new Property[21];
 	int player1;
 	int player2;
 	int player3;
@@ -34,25 +34,28 @@ public class Board
 		player2 = -1;
 		player3 = -1;
 	}	
-	public void execute(int dieRoll, int player, int bal1, int bal2, int bal3)
+	public int[] execute(int dieRoll, int player, int bal1, int bal2, int bal3)
 	{
 		Scanner in = new Scanner(System.in);
-
+		int[] balances = {bal1, bal2, bal3};
 		//player 1
-		if (player == 1) {
+		if (player == 1) 
+		{
 			if (bal1 <= 0)
 			{
-				return;
+				return balances;
 			}
 			player1 += dieRoll;
-			if (player1 > 20) {
+			if (player1 > 20) 
+			{
 				player1 -= 21;
+				balances[0] += 200;
 			}
 			System.out.println(bal1);
 			if (list[player1].getOwner() == 1) 
 			{
 				System.out.println("You already own this property!");
-				return;
+				return balances;
 			}
 			if (list[player1].getOwner() == 2) 
 			{
@@ -73,17 +76,17 @@ public class Board
 						list[r].setOwner(0);
 					}
 				}
-				return;
+				return balances;
 			}
 			if (list[player1].getOwner() == 0) 
 			{
 				System.out.println("Would you like to buy " + list[player1].getName() + "? It costs " + list[player1].getPrice() + ".");
-				if (in.next().equals("Yes")) 
+				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal1 >= list[player1].getPrice())
 					{
 						list[player1].setOwner(1);
-						System.out.println("You are now the owner of " + list[player1].getName() + " . Congradulations!");
+						System.out.println("You are now the owner of " + list[player1].getName() + " . Congratulations!");
 
 					}
 					else
@@ -93,9 +96,10 @@ public class Board
 				}
 				else
 				{
-					return;
+					return balances;
 				}
 			}
+			return balances;
 		}
 
 		//player 2
@@ -103,18 +107,19 @@ public class Board
 		{
 			if (bal2 <= 0)
 			{
-				return;
+				return balances;
 			}
 			player2 += dieRoll;
 			if (player2 > 20) 
 			{
 				player2 -= 21;
+				balances[0] += 200;
 			}
 			System.out.println(bal2);
 			if (list[player2].getOwner() == 2) 
 			{
 				System.out.println("You already own this property!");
-				return;
+				return balances;
 			}
 			if (list[player2].getOwner() == 3) 
 			{
@@ -135,17 +140,17 @@ public class Board
 						list[r].setOwner(0);
 					}
 				}
-				return;
+				return balances;
 			}
 			if (list[player2].getOwner() == 0) 
 			{
 				System.out.println("Would you like to buy " + list[player2].getName() + "? It costs " + list[player2].getPrice() + ".");
-				if (in.next().equals("Yes")) 
+				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal2 >= list[player2].getPrice())
 					{
 						list[player2].setOwner(2);
-						System.out.println("You are now the owner of " + list[player2].getName() + " . Congradulations!");
+						System.out.println("You are now the owner of " + list[player2].getName() + " . Congratulations!");
 					}
 					else
 					{
@@ -154,10 +159,10 @@ public class Board
 				}
 				else
 				{
-					return;
+					return balances;
 				}
 			}
-			
+			return balances;
 		}
 
 		//player 3
@@ -165,18 +170,19 @@ public class Board
 		{
 			if (bal1 <= 0)
 			{
-				return;
+				return balances;
 			}
 			player3 += dieRoll;
 			if (player3 > 20) 
 			{
 				player3 -= 21;
+				balances[0] += 200;
 			}
 			System.out.println(bal1);
 			if (list[player3].getOwner() == 3) 
 			{
 				System.out.println("You already own this property!");
-				return;
+				return balances;
 			}
 			if (list[player3].getOwner() == 2) 
 			{
@@ -197,17 +203,17 @@ public class Board
 						list[r].setOwner(0);
 					}
 				}
-				return;
+				return balances;
 			}
 			if (list[player3].getOwner() == 0) 
 			{
 				System.out.println("Would you like to buy " + list[player3].getName() + "? It costs " + list[player3].getPrice() + ".");
-				if (in.next().equals("Yes")) 
+				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal3 >= list[player3].getPrice())
 					{
 						list[player3].setOwner(3);
-						System.out.println("You are now the owner of " + list[player3].getName() + " . Congradulations!");
+						System.out.println("You are now the owner of " + list[player3].getName() + " . Congratulations!");
 					}
 					else
 					{
@@ -216,10 +222,11 @@ public class Board
 				}
 				else
 				{
-					return;
+					return balances;
 				}
 			}
-			
+			return balances;
 		}
+		return balances;
 	}
 }
