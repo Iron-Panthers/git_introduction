@@ -9,7 +9,10 @@ public class Property {
 		// TODO Auto-generated method stub
 		
 	}
-	public Property() {
-		
+	public Property(String name, double pvalue, double mvalue, double rent) {
+		this.pvalue = pvalue;
+		this.mvalue = mvalue;
+		this.rent = rent;
+		this.name = name;
 	}
 }
