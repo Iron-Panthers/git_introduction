@@ -6,6 +6,6 @@ public class Money {
 
 	}
 	public Money() {
-		value = 1000.00;
+		value = 10000.00;
 	}
 }

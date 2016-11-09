@@ -1,11 +1,12 @@
 public class Player {
 	private int position;
 	private String name;
+	private boolean isInJail;
 	
 	public static void main(String[] args) {
-		Money dollars = new Money();
+		
 	}
 	public Player(String name) {
-		
+		Money dollars = new Money();
 	}
 }
