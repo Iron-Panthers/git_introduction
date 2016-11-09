@@ -20,7 +20,7 @@ public class Board
 		list[8] = new Property("Kim's Krusty Kmart", 0, 20, 2);
 		list[9] = new Property("Emily's Erotic Enamel", 0, 55, 7);
 		list[10] = new Property("Mona's Majestic Monkeys", 0, 70, 8);
-		list[11] = new Property("Grace's Galant", 0, 75, 9);
+		list[11] = new Property("Grace's Great Goggles", 0, 75, 9);
 		list[12] = new Property("Austin's Angry Art", 0, 65, 8);
 		list[13] = new Property("Stella's Sterotypical Serfdom", 0, 55, 4);
 		list[14] = new Property("Rory's Rad Roofies", 0, 45, 3);
@@ -38,32 +38,37 @@ public class Board
 	{
 		Scanner in = new Scanner(System.in);
 		int[] balances = {bal1, bal2, bal3};
+
 		//player 1
 		if (player == 1) 
 		{
+			System.out.println("\n\tIt is now Player 1's turn.");
 			if (bal1 <= 0)
 			{
 				return balances;
 			}
 			player1 += dieRoll;
+			System.out.println("\nYou have moved " + dieRoll + " spots.");
 			if (player1 > 20) 
 			{
 				player1 -= 21;
 				balances[0] += 200;
 			}
-			System.out.println(bal1);
+			System.out.println("Balance: " + bal1 + " dollars");
 			if (list[player1].getOwner() == 1) 
 			{
-				System.out.println("You already own this property!");
+				System.out.println("\nYou already own this property!");
 				return balances;
 			}
 			if (list[player1].getOwner() == 2) 
 			{
+				System.out.println("\nThe Rent costs " + list[player1].getRent() + " dollars.");
 				bal1 -= list[player1].getRent();
 				bal2 += list[player1].getRent();
 			}
 			if (list[player1].getOwner() == 3) 
 			{
+				System.out.println("\nThe Rent costs " + list[player1].getRent() + " dollars.");
 				bal1 -= list[player1].getRent();
 				bal3 += list[player1].getRent();
 			}
@@ -80,18 +85,18 @@ public class Board
 			}
 			if (list[player1].getOwner() == 0) 
 			{
-				System.out.println("Would you like to buy " + list[player1].getName() + "? It costs " + list[player1].getPrice() + ".");
+				System.out.println("\nWould you like to buy " + list[player1].getName() + "? It costs " + list[player1].getPrice() + " dollars. Say Yes or No.");
 				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal1 >= list[player1].getPrice())
 					{
 						list[player1].setOwner(1);
-						System.out.println("You are now the owner of " + list[player1].getName() + " . Congratulations!");
-
+						System.out.println("\nYou are now the owner of " + list[player1].getName() + ". Congratulations!");
+						bal1 = bal1 - list[player1].getPrice();
 					}
 					else
 					{
-						System.out.println("You do not have enough money to buy this property, you only have " + bal1 + ".");
+						System.out.println("\nYou do not have enough money to buy this property, you only have " + bal1 + " dollars.");
 					}
 				}
 				else
@@ -99,35 +104,40 @@ public class Board
 					return balances;
 				}
 			}
+			System.out.println("Balance: " + bal1 + " dollars");
 			return balances;
 		}
 
 		//player 2
 		if (player == 2) 
 		{
+			System.out.println("\n\tIt is now Player 2's turn.");
 			if (bal2 <= 0)
 			{
 				return balances;
 			}
 			player2 += dieRoll;
+			System.out.println("\nYou have moved " + dieRoll + " spots.");
 			if (player2 > 20) 
 			{
 				player2 -= 21;
 				balances[0] += 200;
 			}
-			System.out.println(bal2);
+			System.out.println("Balance: " + bal2 + " dollars");
 			if (list[player2].getOwner() == 2) 
 			{
-				System.out.println("You already own this property!");
+				System.out.println("\nYou already own this property!");
 				return balances;
 			}
 			if (list[player2].getOwner() == 3) 
 			{
+				System.out.println("\nThe Rent costs " + list[player2].getRent() + " dollars.");
 				bal2 -= list[player2].getRent();
 				bal3 += list[player2].getRent();
 			}
 			if (list[player2].getOwner() == 1) 
 			{
+				System.out.println("\nThe Rent costs " + list[player2].getRent() + " dollars.");
 				bal2 -= list[player2].getRent();
 				bal1 += list[player2].getRent();
 			}
@@ -144,17 +154,18 @@ public class Board
 			}
 			if (list[player2].getOwner() == 0) 
 			{
-				System.out.println("Would you like to buy " + list[player2].getName() + "? It costs " + list[player2].getPrice() + ".");
+				System.out.println("\nWould you like to buy " + list[player2].getName() + "? It costs " + list[player2].getPrice() + " dollars. Say Yes or No.");
 				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal2 >= list[player2].getPrice())
 					{
 						list[player2].setOwner(2);
-						System.out.println("You are now the owner of " + list[player2].getName() + " . Congratulations!");
+						System.out.println("\nYou are now the owner of " + list[player2].getName() + ". Congratulations!");
+						bal2 = bal2 - list[player2].getPrice();
 					}
 					else
 					{
-						System.out.println("You do not have enough money to buy this property, you only have " + bal2 + ".");
+						System.out.println("\nYou do not have enough money to buy this property, you only have " + bal2 + " dollars.");
 					}
 				}
 				else
@@ -162,35 +173,40 @@ public class Board
 					return balances;
 				}
 			}
+			System.out.println("Balance: " + bal2 + " dollars");
 			return balances;
 		}
 
 		//player 3
 		if (player == 3) 
 		{
+			System.out.println("\n\tIt is now Player 3's turn.");
 			if (bal1 <= 0)
 			{
 				return balances;
 			}
 			player3 += dieRoll;
+			System.out.println("\nYou have moved " + dieRoll + " spots.");
 			if (player3 > 20) 
 			{
 				player3 -= 21;
 				balances[0] += 200;
 			}
-			System.out.println(bal1);
+			System.out.println("Balance: " + bal3 + " dollars");
 			if (list[player3].getOwner() == 3) 
 			{
-				System.out.println("You already own this property!");
+				System.out.println("\nYou already own this property!");
 				return balances;
 			}
 			if (list[player3].getOwner() == 2) 
 			{
+				System.out.println("\nThe Rent costs " + list[player3].getRent() + " dollars.");
 				bal3 -= list[player3].getRent();
 				bal2 += list[player3].getRent();
 			}
 			if (list[player3].getOwner() == 1) 
 			{
+				System.out.println("\nThe Rent costs " + list[player3].getRent() + " dollars.");
 				bal3 -= list[player3].getRent();
 				bal1 += list[player3].getRent();
 			}
@@ -207,17 +223,18 @@ public class Board
 			}
 			if (list[player3].getOwner() == 0) 
 			{
-				System.out.println("Would you like to buy " + list[player3].getName() + "? It costs " + list[player3].getPrice() + ".");
+				System.out.println("\nWould you like to buy " + list[player3].getName() + "? It costs " + list[player3].getPrice() + " dollars. Say Yes or No.");
 				if (in.nextLine().equals("Yes")) 
 				{
 					if(bal3 >= list[player3].getPrice())
 					{
 						list[player3].setOwner(3);
-						System.out.println("You are now the owner of " + list[player3].getName() + " . Congratulations!");
+						System.out.println("\nYou are now the owner of " + list[player3].getName() + ". Congratulations!");
+						bal3 = bal3 - list[player3].getPrice();
 					}
 					else
 					{
-						System.out.println("You do not have enough money to buy this property, you only have " + bal3 + ".");
+						System.out.println("\nYou do not have enough money to buy this property, you only have " + bal3 + " dollars.");
 					}
 				}
 				else
@@ -225,6 +242,7 @@ public class Board
 					return balances;
 				}
 			}
+			System.out.println("Balance: " + bal3 + " dollars");
 			return balances;
 		}
 		return balances;

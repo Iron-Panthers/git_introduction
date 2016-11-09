@@ -9,18 +9,33 @@ public class MonopolyCreator
 		Board board = new Board();
 		Die die = new Die(0,0);
 		boolean over = false; 
-		int[] bals = new int[3];
+		int[] bals = {200,200,200};
 
 		while(over == false)
 		{
-			
-			bals = board.execute(die.rollDie(), board.player1, bals[0], bals[1], bals[2]);
-			bals = board.execute(die.rollDie(), board.player2, bals[0], bals[1], bals[2]);
-			bals = board.execute(die.rollDie(), board.player3, bals[0], bals[1], bals[2]);
+			bals = board.execute(die.rollDie(), 1, bals[0], bals[1], bals[2]);
+			bals = board.execute(die.rollDie(), 2, bals[0], bals[1], bals[2]);
+			bals = board.execute(die.rollDie(), 3, bals[0], bals[1], bals[2]);
+	
+			int count = 0;
+			int winner = 0;
+
+			for (int a = 0; a < 3; a++) 
+			{
+				if(bals[a] <= 0)
+				{
+					count++;
+				}
+				else
+				{
+					winner = a;
+				}
+			}
+			if(count == 2)
+			{
+				System.out.println("Player " + winner + " is the winner!");
+				over = true; 
+			}
 		}
 	}
-	/* takes care of creating all the other classes
-	manages actions:
-		-asks user for input
-	*/
 }
