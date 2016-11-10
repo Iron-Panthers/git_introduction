@@ -34,28 +34,5 @@ public class Board {
 		properties.add(new Property("y", 550, 165, 55));
 		properties.add(new Property("z", 550, 165, 55));
 		
-		System.out.println("How many players?");
-		Scanner input = new Scanner(System.in);
-		int numPlayers = input.nextInt();
-		Player[] players = new Player[numPlayers];
-		for (int i = 0; i < numPlayers; i++) {
-			players[i] = new Player("Player" + (i + 1));
-		}
-		Dice d1 = new Dice();
-		Dice d2 = new Dice();
-	}
-	public Board() {
-		
-	}
-	public void move() {
-		int doubles = 0;
-		int position = d1.roll + d2.roll;
-		if (d1.roll == d2.roll) {
-			position = d1.roll + d2.roll;
-			doubles += 1;
-		}
-		if (doubles == 3) {
-			
-		}
 	}
 }
