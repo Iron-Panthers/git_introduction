@@ -39,7 +39,7 @@ public class Player
 	public void buyProperty(Board board)
 	{
 		board.properties[position].owner = owner;
-		this.money = money - board.properties[position].rent;
+		this.money = money - board.properties[position].price;
 	}
 	public int getMoney()
 	{

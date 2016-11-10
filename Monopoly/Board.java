@@ -26,7 +26,7 @@ public class Board
 		new Property("Colossus", 0, 400, 100),
 		new Property("Mutalisk", 0, 420, 120),
 		new Property("Viking", 0, 455, 130),
-		new Property("Phoenix" 0, 483, 138),
+		new Property("Phoenix", 0, 483, 138),
 		new Property("Brood Lord", 0, 489, 163),
 		new Property("Banshee", 0, 504, 168),
 		new Property("Void Ray", 0, 510, 170),
