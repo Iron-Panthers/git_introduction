@@ -5,8 +5,8 @@ public class Monopoly
 	{
 		Die d1 = new Die();
 		Board b1 = new Board();
-		Player p1 = new Player(1, 0, 2000);
-		Player p2 = new Player(2, 0, 2000);
+		Player p1 = new Player(1, 0, 1000);
+		Player p2 = new Player(2, 0, 1000);
 		Scanner sc = new Scanner(System.in);
 		boolean playing = true;
 		while(playing)
@@ -60,7 +60,7 @@ public class Monopoly
 					p2.buyProperty(b1);
 				}
 			}
-			else if(b1.properties[p2.getPosition()].owner == 2)
+			else if(b1.properties[p2.getPosition()].owner == 1)
 			{
 				System.out.println("This unit is owned by the other player. You must pay " + b1.properties[p1.getPosition()].rent + " dollars.");
 				p2.payRent(b1);
@@ -69,6 +69,10 @@ public class Monopoly
 				{
 					System.out.println("Baneling exploded. It is now free to buy.");
 				}
+			}
+			if(p1.getMoney() < 1|| p2.getMoney() < 1)
+			{
+				playing = false;
 			}
 		}
 	}

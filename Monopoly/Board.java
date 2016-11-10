@@ -6,7 +6,7 @@ public class Board
 		new Property("Zergling", 0, 20, 2),
 		new Property("Marine", 0, 40, 4),
 		new Property("Adept", 0, 50, 5),
-		new Property("Baneling", 0, 90, 500),
+		new Property("Baneling", 0, 100, 200),
 		new Property("Reaper", 0, 117, 13),
 		new Property("Zealot", 0, 135, 15),
 		new Property("Roach", 0, 160, 20),
@@ -24,6 +24,12 @@ public class Board
 		new Property("Queen", 0, 360, 90),
 		new Property("Thor", 0, 380, 95),
 		new Property("Colossus", 0, 400, 100),
+		new Property("Mutalisk", 0, 420, 120),
+		new Property("Viking", 0, 455, 130),
+		new Property("Phoenix" 0, 483, 138),
+		new Property("Brood Lord", 0, 489, 163),
+		new Property("Banshee", 0, 504, 168),
+		new Property("Void Ray", 0, 510, 170),
 	};
 	public Board()
 	{

@@ -20,7 +20,7 @@ public class Player
 		if (position + spaces > board.properties.length) 
 		{
 			this.position = spaces - (board.properties.length - position);
-			this.money = money + 200;
+			this.money = money + 50;
 		}
 	}
 	public void payRent(Board board)
@@ -39,7 +39,7 @@ public class Player
 	public void buyProperty(Board board)
 	{
 		board.properties[position].owner = owner;
-		this.money = money - board.properties[properties].rent;
+		this.money = money - board.properties[position].rent;
 	}
 	public int getMoney()
 	{
