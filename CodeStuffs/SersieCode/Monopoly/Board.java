@@ -88,11 +88,11 @@ public class Board
 				System.out.println("\nWould you like to buy " + list[player1].getName() + "? It costs " + list[player1].getPrice() + " dollars. Say Yes or No.");
 				if (in.nextLine().equals("Yes")) 
 				{
-					if(bal1 >= list[player1].getPrice())
+					if(bals >= list[player1].getPrice())
 					{
 						list[player1].setOwner(1);
 						System.out.println("\nYou are now the owner of " + list[player1].getName() + ". Congratulations!");
-						bal1 = bal1 - list[player1].getPrice();
+						bals[0] = bal[0] - list[player1].getPrice();
 					}
 					else
 					{
@@ -161,7 +161,7 @@ public class Board
 					{
 						list[player2].setOwner(2);
 						System.out.println("\nYou are now the owner of " + list[player2].getName() + ". Congratulations!");
-						bal2 = bal2 - list[player2].getPrice();
+						bals[1] = bals[1] - list[player2].getPrice();
 					}
 					else
 					{
@@ -230,7 +230,7 @@ public class Board
 					{
 						list[player3].setOwner(3);
 						System.out.println("\nYou are now the owner of " + list[player3].getName() + ". Congratulations!");
-						bal3 = bal3 - list[player3].getPrice();
+						bals[2] = bals[2] - list[player3].getPrice();
 					}
 					else
 					{
