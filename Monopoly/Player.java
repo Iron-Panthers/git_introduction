@@ -3,31 +3,49 @@ public class Player
 	int money;
 	int owner;
 	int position;
+	int payment;
 	public Player(int owner, int position, int money)
 	{
 		this.owner = owner;
 		this.position = position;
 		this.money = money;
 	}
-	public int getposition()
+	public int getPosition()
 	{
 		return position;
 	}
-	public void movePlayer(int spaces, Board board) 
+	public void movePlayer(int spaces, Board board, Die die) 
 	{
 		position += spaces;
-		/*if (position + die.rollValue() > board.properties.length) 
+		if (position + spaces > board.properties.length) 
 		{
-			// TOO FAR, PASS GO AGAIN AND ADD THE REMAINING SPACES//
-			position = die.rollValue() - (board.properties.length - position);
+			this.position = spaces - (board.properties.length - position);
+			this.money = money + 200;
 		}
-		*/
 	}
 	public void payRent(Board board)
 	{
-		if(board.properties[position].owner != 0 && board.properties[position].owner != owner)
-		{
-			
-		}
+			if(position == 3)
+			{
+				board.properties[position].owner = 0;
+			}
+			this.payment = board.properties[position].rent;
+			this.money = money - payment;
 	}
-}
+	public void gainRent()
+	{
+		this.money = money + payment;
+	}
+	public void buyProperty(Board board)
+	{
+		board.properties[position].owner = owner;
+	}
+	public int getMoney()
+	{
+		return money;
+	}
+	public int getOwner()
+	{
+		return owner;
+	}
+} 

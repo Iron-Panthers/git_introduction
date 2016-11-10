@@ -11,9 +11,8 @@ public class Property
 		this.price = price;
 		this.name = name;
 	}
-
-	public void setOwner(Player player)
+	public int getOwner()
 	{
-		owner = player.owner;
+		return owner;
 	}
 }
