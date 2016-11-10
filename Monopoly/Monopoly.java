@@ -5,8 +5,8 @@ public class Monopoly
 	{
 		Die d1 = new Die();
 		Board b1 = new Board();
-		Player p1 = new Player(1, 0, 200);
-		Player p2 = new Player(2, 0, 200);
+		Player p1 = new Player(1, 0, 2000);
+		Player p2 = new Player(2, 0, 2000);
 		Scanner sc = new Scanner(System.in);
 		boolean playing = true;
 		while(playing)
