@@ -20,25 +20,30 @@ public class Monopoly {
 		for (int i = 0; i < numPlayers; i++) {
 			players[i] = new Player("Player" + (i + 1));
 		}
-		while (isBankrupt = false) {
+		while (isBankrupt == false) {
 			for (turn; turn < numPlayers; turn++) {
 				cPlayer = players[turn]
-				System.out.println("Current player: " + players[turn].name);
+				System.out.println("Current player: " + cPlayer.name);
 				System.out.println("Current Position: " + board.properties.get(cPlayer.position));
-				System.out.println(cPlayer.name + "what would you like to do? \nMove   End Turn");
+				System.out.println(cPlayer.name + ", what would you like to do? \nMove   End Turn");
 				String answer = input.nextLine();
 				if (answer.toLowerCase().equals("move")) {
-					cPlayer.move();
+					while (isInJail == false && cPlayer.doubles < 3) {
+						cPlayer.move();
+						System.out.println("Current Position: " + board.properties.get(cPlayer.position));
+						if (cPlayer.isDouble == true) {
+							System.out.println("You rolled a double.");
+						}
+						else {
+							break;
+						}
+					}
 				}
 				else if (answer.toLowerCase().equals("end turn")) {
 					turn++;
 				}
 				else {
-					System.out.println("That's that a valid option.");
-				}
-				if (cPlayer.isDouble == true) {
-					System.out.println("You rolled a double.");
-					cPlayer.move();	
+					System.out.println("That's not a valid option.");
 				}
 			}
 		}

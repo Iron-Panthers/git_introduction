@@ -12,9 +12,12 @@ public class Player {
 		
 	}
 	public Player(String name) {
+		this.name = name;
 		Money dollars = new Money();
 		boolean isDouble = false;
 		int doubles = 0;
+		Arraylist<Property> ownProp = new Arraylist<Property>;
+		isInJail = false;
 	}
 	public void move() {
 		int change = d1.roll + d2.roll;

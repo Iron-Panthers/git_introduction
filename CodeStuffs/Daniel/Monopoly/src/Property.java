@@ -15,4 +15,5 @@ public class Property {
 		this.rent = rent;
 		this.name = name;
 	}
+	
 }
