@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.lang.Math;
 public class MonopolyCreator
 {
-	public int[] bals = {200,200,200};
 	public static void main (String[] args)
 	{
 		Scanner in = new Scanner(System.in);
@@ -10,6 +9,7 @@ public class MonopolyCreator
 		Board board = new Board();
 		Die die = new Die(0,0);
 		boolean over = false;
+		int[] bals = {200,200,200};
 
 		while(over == false)
 		{
