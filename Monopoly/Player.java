@@ -3,7 +3,6 @@ public class Player
 	int money;
 	int owner;
 	int position;
-	int payment;
 	public Player(int owner, int position, int money)
 	{
 		this.owner = owner;
@@ -29,17 +28,16 @@ public class Player
 			{
 				board.properties[position].owner = 0;
 			}
-			this.payment = board.properties[position].rent;
-			this.money = money - payment;
+			money = money - board.properties[position].rent;
 	}
 	public void gainRent()
 	{
-		this.money = money + payment;
+		money += payment;
 	}
 	public void buyProperty(Board board)
 	{
 		board.properties[position].owner = owner;
-		this.money = money - board.properties[position].price;
+		money = money - board.properties[position].price;
 	}
 	public int getMoney()
 	{
