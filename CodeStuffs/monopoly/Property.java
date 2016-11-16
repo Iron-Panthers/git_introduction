@@ -6,6 +6,7 @@ public class Property {
 	int rent;
 	int position;
 	String name;
+	int mortgage;
 	
 
 	public Property(String name, int price, int color, int rent, int position) {
@@ -16,7 +17,7 @@ public class Property {
 	this.rent = rent;
 	this.position = position;
 	this.name = name;
-	this.landedOn = false;
+	
 	}
 
 	public void landOn(int playerPosition, int position) {

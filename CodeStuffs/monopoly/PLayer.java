@@ -7,9 +7,14 @@ public class Player {
 		this.playerNumber = playerNumber;
 		this.playerPosition = playerPosition;
 		this.playerMoney = playerMoney;
-	
+
 	}
-	public void movePlayer(int playerPosition) {
-		playerPosition += totalRoll;
+	public void movePlayer(MonopolyBoard board) {
+	int tilesMoved = (int) (Math.random() * 6) + 1;
+	playerPosition += tilesMoved;
+	if(playerPosition > board.propertyList.length -1) {
+		playerPosition -= board.propertyList.length;
+		playerMoney +=200;
+	}
 	}
 }
