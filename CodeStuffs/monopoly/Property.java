@@ -20,9 +20,8 @@ public class Property {
 	
 	}
 
-	public void landOn(int playerPosition, int position) {
-		if(playerPosition == position) {
-			System.out.println("What would you like to do?");
-		}
-	}
+	//public void chargeRent(int owner) {
+		//if(this.ow)
+	
+
 }
