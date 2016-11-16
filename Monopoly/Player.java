@@ -30,9 +30,9 @@ public class Player
 			}
 			money = money - board.properties[position].rent;
 	}
-	public void gainRent()
+	public void gainRent(int rent)
 	{
-		money += payment;
+		money += rent;
 	}
 	public void buyProperty(Board board)
 	{

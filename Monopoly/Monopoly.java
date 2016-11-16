@@ -35,9 +35,9 @@ public class Monopoly
 			}
 			else if(b1.properties[p1.getPosition()].owner == 2)
 			{
-				System.out.println("This unit is owned by the other player. You must pay " + b1.properties[p1.getPosition()].rent + " dollars.");
+				System.out.println("This unit is owned by the other player. You must pay " + b1.properties[p2.getPosition()].rent + " dollars.");
 				p1.payRent(b1);
-				p2.gainRent();
+				p2.gainRent(b1.properties[p1.getPosition()].rent);
 				if(p1.getPosition() == 3)
 				{
 					System.out.println("Baneling exploded. It is now free to buy.");
@@ -47,7 +47,7 @@ public class Monopoly
 			if(p1.getMoney() < 1)
 			{
 				System.out.println("Player 2 wins!");
-				playing = false;
+				break;
 			}
 			System.out.println("Player 2 moved " + spaces2 + " steps");
 			p2.movePlayer(spaces2, b1, d2);
@@ -70,9 +70,9 @@ public class Monopoly
 			}
 			else if(b1.properties[p2.getPosition()].owner == 1)
 			{
-				System.out.println("This unit is owned by the other player. You must pay " + b1.properties[p1.getPosition()].rent + " dollars.");
+				System.out.println("This unit is owned by the other player. You must pay " + b1.properties[p2.getPosition()].rent + " dollars.");
 				p2.payRent(b1);
-				p1.gainRent();
+				p1.gainRent(b1.properties[p2.getPosition()].rent);
 				if(p2.getPosition() == 3)
 				{
 					System.out.println("Baneling exploded. It is now free to buy.");
