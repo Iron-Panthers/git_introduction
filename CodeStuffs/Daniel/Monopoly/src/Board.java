@@ -3,10 +3,16 @@ import java.util.Scanner;
 
 
 public class Board {
+	public ArrayList properties;
+
+	
 	public static void main(String[] args) {
 		//Create arraylist
-		ArrayList<Property> properties = new Arraylist<Property>;
 		
+	}
+	public Board() {
+		properties = new ArrayList<Property>();
+	
 		properties.add(new Property("a", 100, 30, 10));
 		properties.add(new Property("b", 100, 30, 10));
 		properties.add(new Property("c", 125, 36, 12));
@@ -33,6 +39,5 @@ public class Board {
 		properties.add(new Property("x", 475, 141, 47));
 		properties.add(new Property("y", 550, 165, 55));
 		properties.add(new Property("z", 550, 165, 55));
-		
 	}
 }

@@ -1,12 +1,16 @@
+import java.util.ArrayList;
+
 public class Player {
-	private int position;
-	private String name;
-	private boolean isInJail;
+	public int position;
+	public String name;
+	public boolean isInJail;
 	private Dice d1;
 	private Dice d2;
 	private Board board;
-	private boolean isDouble;
-	private int doubles;
+	public boolean isDouble;
+	public int doubles;
+	public Money dollars;
+	public ArrayList properties;
 	
 	public static void main(String[] args) {
 		
@@ -16,25 +20,25 @@ public class Player {
 		Money dollars = new Money();
 		boolean isDouble = false;
 		int doubles = 0;
-		Arraylist<Property> ownProp = new Arraylist<Property>;
+		ArrayList<Property> ownProp = new ArrayList<Property>();
 		isInJail = false;
 	}
 	public void move() {
-		int change = d1.roll + d2.roll;
+		int change = this.d1.roll() + this.d2.roll();
 		if (position < board.properties.size()) {
 			position += change;
 		}
 		else {
 			position = 0;
 		}
-		if (d1.roll == d2.roll) {
+		if (this.d1.roll() == this.d2.roll()) {
 			isDouble = true;
-			change = d1.roll + d2.roll;
+			change = this.d1.roll() + this.d2.roll();
 			doubles += 1;
 			isDouble = false;
 		}
 		if (doubles == 3) {
-			double = 0;
+			doubles = 0;
 		}
 	}
 }
