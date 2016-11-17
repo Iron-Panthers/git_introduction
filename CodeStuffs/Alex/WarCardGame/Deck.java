@@ -17,6 +17,12 @@ public class Deck {
         shuffle();
     }
 
+    public Deck(ArrayList<Card> cards) {
+        for (Card card : cards) {
+            deck.add(card);
+        }
+    }
+
     public Card drawCard() {
         if (deck.size() > 0) {
             Card card = deck.get(0);
@@ -31,6 +37,10 @@ public class Deck {
         deck.add(card);
     }
 
+    public ArrayList<Card> getDeck() {
+        return deck;
+    }
+
     public int getDeckSize() {
         return deck.size();
     }
@@ -39,7 +49,7 @@ public class Deck {
         ArrayList<Card> shuffledDeck = new ArrayList<Card>();
         int originalDeckSize = deck.size();
         for (int i = 0; i < originalDeckSize; i++) {
-            int randomCardIndex = (int) (Math.random() * (deck.size()));
+            int randomCardIndex = (int) (Math.random() * deck.size());
             Card randomCard = deck.get(randomCardIndex);
             shuffledDeck.add(randomCard);
             deck.remove(randomCardIndex);

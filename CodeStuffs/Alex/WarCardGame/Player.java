@@ -1,34 +1,25 @@
 import java.util.ArrayList;
 
 public class Player {
-    private Card card;
+    public Card card;
     private Card[] tieBreakerCards = new Card[3];
-    private Deck deck;
-    private boolean computer = false;
-
-    public Player() {
-        this.deck = Main.deck;
-    }
-
-    public Player(boolean computer) {
-        this.deck = Main.deck;
-        this.computer = computer;
-
-    }
+    public Deck hand;
+    //private boolean computer = false;
 
     public Card drawCard() {
-        Card card = deck.drawCard();
+        Card card = hand.drawCard();
         this.card = card;
+        Main.drawedCards.add(card);
         return card;
     }
 
-    public Card getCard() {
-        return card;
+    public void addCard(Card card) {
+        hand.addCard(card);
     }
 
     public Card[] drawTieBreakerCards() {
         for (int i = 0; i < 3; i++) {
-            tieBreakerCards[i] = deck.drawCard();
+            tieBreakerCards[i] = hand.drawCard();
             if (tieBreakerCards[i] == null) {
                 return null;
             }
