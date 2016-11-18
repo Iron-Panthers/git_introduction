@@ -3,24 +3,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static Deck deck;
-    public static ArrayList<Player> players;
     public static ArrayList<Card> drawedCards;
-    public static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
+    private static ArrayList<Player> players;
+    private static boolean breakLoop;
 
     public static void main(String[] args) {
+        game(new Player(), new Player());
+    }
 
-        deck = new Deck();
-        players = new ArrayList<Player>();
+    public static void game(Player... playersParam) {
+        Deck deck = new Deck();
+        players = new ArrayList<Player>(Arrays.asList(playersParam));
         drawedCards = new ArrayList<Card>();
-
-        Player human = new Player();
-        Player human2 = new Player();
-        Player human3 = new Player();
-
-        players.add(human);
-        players.add(human2);
-        players.add(human3);
 
         int deckSize = deck.getDeckSize();
         int deckSizeShare = deckSize / players.size();
@@ -33,10 +28,9 @@ public class Main {
             player.hand = new Deck(cards);
         }
 
+        breakLoop = false;
         while (true) {
             drawedCards.clear();
-
-            boolean breakLoop = false;
             for (Player player : players) {
                 if (player.hand.getDeckSize() == 0) {
                     int playerNumber = players.indexOf(player) + 1;
@@ -65,9 +59,14 @@ public class Main {
                 } else if (tieCount == 2) {
                     handleTie2(false);
                 } else {
+                    System.out.println("Tie Game!");
                     break;
                 }
                 tieCount++;
+            }
+
+            if (breakLoop) {
+                break;
             }
 
             Player winner = getWinner();
@@ -90,10 +89,12 @@ public class Main {
             }
         }
     }
-
     public static boolean checkForTie() {
         boolean tie = true;
         for (Player player : players) {
+            if (player.card == null) {
+                return false;
+            }
             int checkValue = players.get(0).card.getValue();
             int value = player.card.getValue();
             if (!(checkValue == value)) {
@@ -128,8 +129,14 @@ public class Main {
             System.out.println("Press enter to draw 3 cards");
             scanner.nextLine();
             Card[] tieBreakerCards = player.drawTieBreakerCards();
-
-            player.card = tieBreakerCards[0];
+            if (tieBreakerCards == null) {
+                player.card = null;
+                breakLoop = true;
+                System.out.println(String.format("No more cards. Player %s wins!", playerNumber));
+                return;
+            } else {
+                player.card = tieBreakerCards[0];
+            }
             System.out.println(String.format("* %s, [hidden], [hidden]\n", player.card));
         }
     }

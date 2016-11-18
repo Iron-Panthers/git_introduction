@@ -14,7 +14,9 @@ public class Deck {
                 deck.add(new Card(type, suit));
             }
         }
-        shuffle();
+        //shuffle();
+        deck.remove(9);
+        deck.add(0, new Card("Two", "Diamonds"));
     }
 
     public Deck(ArrayList<Card> cards) {

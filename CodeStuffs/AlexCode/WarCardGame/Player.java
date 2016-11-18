@@ -4,7 +4,6 @@ public class Player {
     public Card card;
     private Card[] tieBreakerCards = new Card[3];
     public Deck hand;
-    //private boolean computer = false;
 
     public Card drawCard() {
         Card card = hand.drawCard();
@@ -23,9 +22,9 @@ public class Player {
             if (tieBreakerCards[i] == null) {
                 return null;
             }
+            Main.drawedCards.add(tieBreakerCards[i]);
         }
         return tieBreakerCards;
-
     }
 
     public Card[] getTieBreakerCards() {
