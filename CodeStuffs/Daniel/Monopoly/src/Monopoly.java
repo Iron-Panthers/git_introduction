@@ -23,16 +23,16 @@ public class Monopoly {
 			for (int turn = 0; turn < numPlayers; turn++) {
 				Player cPlayer = players[turn];
 				System.out.println("Current player: " + cPlayer.name);
-				System.out.println(board.properties.get(cPlayer.position));
-				//System.out.println("Current Position: " + board.properties.get(cPlayer.position).getName());
+				//System.out.println(board.properties.get(cPlayer.position));
+				System.out.println("Current Position: " + board.properties.get(cPlayer.position));
 				System.out.println(cPlayer.name + ", what would you like to do? \nMove   End Turn");
 				String bogus = input.next();
 				String answer = input.nextLine();
-				if (answer.toLowerCase().equals("move")) {
+				if (bogus.toLowerCase().equalsIgnoreCase("move")) {
 					while (cPlayer.isInJail == false && cPlayer.doubles < 3) {
 						cPlayer.move();
 						System.out.println("Current Position: " + board.properties.get(cPlayer.position));
-						/*
+						
 						if (cPlayer.properties.contains(board.properties.get(cPlayer.position)) == false) {
 							
 							if (board.properties.get(cPlayer.position).isOwned == false) {
@@ -52,7 +52,7 @@ public class Monopoly {
 							
 							
 						}
-						*/
+						
 						//System.out.println(board.properties.get(cPlayer.position));
 						if (cPlayer.isDouble == true) {
 							System.out.println("You rolled a double.");
@@ -62,7 +62,7 @@ public class Monopoly {
 						}
 					}
 				}
-				else if (answer.toLowerCase().equals("end turn")) {
+				else if (bogus.toLowerCase().equalsIgnoreCase("end turn")) {
 					turn++;
 				}
 				else {

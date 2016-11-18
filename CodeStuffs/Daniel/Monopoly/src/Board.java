@@ -12,7 +12,8 @@ public class Board {
 	}
 	public Board() {
 		properties = new ArrayList<Property>();
-	
+		
+		properties.add(new Property("Go", 0, 0, 0));
 		properties.add(new Property("a", 100, 30, 10));
 		properties.add(new Property("b", 100, 30, 10));
 		properties.add(new Property("c", 125, 36, 12));

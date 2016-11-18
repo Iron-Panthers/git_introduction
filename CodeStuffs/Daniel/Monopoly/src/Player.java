@@ -22,6 +22,10 @@ public class Player {
 		int doubles = 0;
 		ArrayList<Property> ownProp = new ArrayList<Property>();
 		isInJail = false;
+		d1 = new Dice();
+		d2 = new Dice();
+		position = 0;
+		board = new Board();
 	}
 	public void move() {
 		int change = this.d1.roll() + this.d2.roll();
@@ -39,6 +43,9 @@ public class Player {
 		}
 		if (doubles == 3) {
 			doubles = 0;
+		}
+		if (board.properties.get(position).name == "Go") {
+			dollars.value += 200;
 		}
 	}
 }
