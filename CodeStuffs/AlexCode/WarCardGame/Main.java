@@ -60,6 +60,7 @@ public class Main {
                     handleTie2(false);
                 } else {
                     System.out.println("Tie Game!");
+                    breakLoop = true;
                     break;
                 }
                 tieCount++;
